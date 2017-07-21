@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://www.ccss.sa.cr/calculadora -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="es"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+	
+	<title>Caja Costarricense de Seguro Social | Calculadora Patronal</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Conozca el monto aproximado de su aporte a la Seguridad Social costarricense.">
+	<!-- This styles only adds some repairs on idevices  -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<!-- Favicon --> 
+	<link rel="shortcut icon" href="https://www.ccss.sa.cr/img/favicon.ico">
+	<!-- Bootstrap CSS -->		
+	<link rel="stylesheet" href="./planilla2/bootstrap.min.css">
+	<!--Calendario pensiones-->
+	<link rel="stylesheet" href="./planilla2/calendario.css">
+	<!-- LIGHTBOX -->
+	<link rel="stylesheet" href="./planilla2/lightbox.css">
+
+	<!--Start script-->
+	<script async="" src="./planilla2/analytics.js.descarga"></script><script type="text/javascript" src="./planilla2/jquery.min.js.descarga"></script>
+			<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-55243184-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	<meta name="google-site-verification" content="mZ52yKKKBYtRc16j2L3MIWIVEH4USQumhbdm7-vmwOQ">
+<script src="./planilla2/angular.min.js.descarga"></script><style type="text/css">
+		etiq
+		{
+			color: #F00;
+		}
+		ol li
+		{
+			font-weight: bold;
+			margin-top: 12px;
+			margin-bottom: 12px;
+		}
+		ol li span 
+		{
+			font-weight:normal;
+		}
+    </style></head>	
+    
+    <body ng-app="CalcSicere" style="" class="ng-scope">
+	
+		<div class="wrapper">
+			<div class="row row-offcanvas row-offcanvas-left">
+				<!--[if lt IE 7]>
+					<p class="browsehappy">You are using an <b>outdated</b> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+				<![endif]-->
+				
+					<div class="inner-wrapper">
+					
+					<!-- Navigation Area -->
+					
+                    
+                    
+                                        
+                    
+
+					<div class="container mt-15">
+						<div class="row">
+							<div class="col-md-9 col-sm-8 col-xs-12">
+								<div class="page-content box-wrapper">
+									<div class="page-article-content clearfix">
+										<h2>Comprobante de pago KSK Costa Rica</h2>
+                                        <hr>
+                                        
+                                       
+                                        
+                                        <div data-ng-controller="ctrlCalcCuotas" class="ng-scope">
+                                        	<p style="color: #F90; font-weight: bold;">Seleccione la planilla</p>
+                                        	 <select name="client_id" ng-model="planilla" class="form-control">
+                                        	 <option value="3000">Planilla 1</option>
+  											<option value="5000">Planilla 2</option>
+										</select>
+
+											<br>
+                                          
+
+                                          <div class="form-group">
+
+                                          <BR>
+                                          
+						      <label class="col-sm-4 control-label" for="name">Cliente</label>
+						      <div class="col-sm-8">
+						       <SELECT NAME="selClienteCombo" SIZE=1 > 
+								
+								<?php include('connect_db.php');
+include ('consultas.php');
+								$query = mysqli_query($link,$ConsultaTodosLosClientes);
+								while($row = mysqli_fetch_assoc($query)){?>
+								<option value=" <?php echo $row['idPersona'] ?> "><?php echo $row['nombreCompleto']; ?></option>
+								<?php } ?>
+								
+								
+								</SELECT> 
+						      </div>
+						    </div>
+
+										<br>
+
+                                          <div class="row">
+
+                                          <div class="col-sm-4">
+
+											<p style="color: #F90; font-weight: bold;">Ingrese el total de horas</p>
+                                            <input type="number" class="input-lg ng-valid ng-dirty ng-valid-number ng-touched" data-ng-model="horas" value="440" style="color: #06C; font-weight: bold; font-size: 18px;"></center>
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            </div>
+
+                                             <div class="col-sm-4">
+
+											<p style="color: #F90; font-weight: bold;">Horas normales</p>
+                                            <input type="number" class="input-lg ng-valid ng-dirty ng-valid-number ng-touched" data-ng-model="horasNormales" value="440" style="color: #06C; font-weight: bold; font-size: 18px;"></center>
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            </div>
+
+                                             <div class="col-sm-4">
+
+											<p style="color: #F90; font-weight: bold;">Horas extra</p>
+                                            <input type="number" class="input-lg ng-valid ng-dirty ng-valid-number ng-touched" data-ng-model="horasExtra" value="440" style="color: #06C; font-weight: bold; font-size: 18px;"></center>
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            </div>
+</div>
+
+
+
+<h2>Detalle de pago</h2>
+
+
+                    <br>
+                      <br>
+
+                        <div class="row">
+
+                                          <div class="col-sm-4">
+
+											<center><p style="color: #F90; font-weight: bold;">Total de salarios</p>
+                                           
+											
+											
+
+                                            <h2><center class="ng-binding" data-ng-model="monto">{{ planilla * horas  | currency:"¢" }}</center></h2>
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            </div>
+
+                                              <div class="col-sm-4">
+
+											<center><p style="color: #F90; font-weight: bold;">Incrementos</p>
+                                           
+											
+											
+
+                                            <h2><center class="ng-binding" data-ng-model="monto">{{ planilla * 0  | currency:"¢" }}</center></h2>
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            </div>
+
+                                              <div class="col-sm-4">
+
+											<center><p style="color: #F90; font-weight: bold;">Deducciones</p>
+                                           
+											
+											
+
+                                            <h2><center class="ng-binding" data-ng-model="monto">{{ planilla * 0  | currency:"¢" }}</center></h2>
+                                            <br>
+                                            <br>
+                                            <br>
+
+                                            </div>
+</div>
+                                                
+                                            <br>
+                                            
+                                            <div>
+<!--                                            	<table class="table table-hover table-striped" style="background: #CCF2FF">
+                                                	<tr>
+                                                    	<th><center>CCSS<br><etiq>22,67%</etiq></center></th>
+                                                    	<th><center>OTRAS<br><etiq>7,25%</etiq></center></th>
+                                                    	<th><center>LPT<br><etiq>5,75%</etiq></center></th>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td><center>{{ monto * 0.2267 | currency:"¢" }}</center></td>
+                                                    	<td><center>{{ monto * 0.0725 | currency:"¢" }}</center></td>
+                                                    	<td><center>{{ monto * 0.0575 | currency:"¢" }}</center></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<th></th>
+                                                    	<th><center>TOTAL<br><etiq>35,67%</etiq></center></th>
+                                                    	<th></th>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td></td>
+                                                    	<td><center>{{ (monto * 0.2267) + (monto * 0.0725) + (monto * 0.0575) | currency:"¢" }}</center></td>
+                                                    	<td></td>
+                                                    </tr>
+												</table>-->
+                                                
+                                            	<table class="table table-hover table-striped">
+                                                	<tbody><tr style="background: #CCF2FF">
+                                                    	<th colspan="4" style="background: #CCF2FF">Caja Costarricense de Seguro Social</th>
+                                                    </tr>
+                                                	<tr>
+                                                    	<th>Concepto</th>
+                                                    	<th style="text-align: right;">Patrono</th>
+                                                    	<th style="text-align: right;">Trabajador</th>
+                                                    	<th style="text-align: right;">Monto</th>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td><b>SEM</b></td>
+                                                    	<td style="text-align: right;"><b><etiq>9,25%</etiq></b></td>
+                                                    	<td style="text-align: right;"><b><etiq>5,50%</etiq></b></td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.0925) + (planilla * horas * 0.0550) | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td><b>IVM</b></td>
+                                                    	<td style="text-align: right;"><b><etiq>5,08%</etiq></b></td>
+                                                    	<td style="text-align: right;"><b><etiq>2,84%</etiq></b></td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.0508) + (planilla * horas * 0.0284) | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td style="background: #a9c3d2; color: #FFF"><b>TOTAL CCSS</b></td>
+                                                    	<td style="background: #a9c3d2; color: #FFF; text-align: right;"><b><etiq>14,33%</etiq></b></td>
+                                                    	<td style="background: #a9c3d2; color: #FFF; text-align: right;"><b><etiq>8,34%</etiq></b></td>
+                                                    	<td style="background: #a9c3d2; color: #FFF; text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.1433) + (planilla * horas * 0.0834) | currency:"¢" }}</b></td>
+                                                    </tr>
+                                              	<tr style="background: #CCF2FF">
+                                                    	<th colspan="4" style="background: #CCF2FF">Recaudación Otras Instituciones</th>
+                                                    </tr>
+                                               	<tr>
+                                                    	<th>Institución</th>
+                                                    	<th style="text-align: right;">Patrono</th>
+                                                    	<th style="text-align: right;">Trabajador</th>
+                                                    	<th style="text-align: right;">Monto</th>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>Cuota Patronal Banco Popular</td>
+                                                        <td style="text-align: right;"><b><etiq>0,25%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.025)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>Asignaciones Familiares</td>
+                                                        <td style="text-align: right;"><b><etiq>5,00%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.05)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>IMAS</td>
+                                                        <td style="text-align: right;"><b><etiq>0,50%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.05)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>INA</td>
+                                                        <td style="text-align: right;"><b><etiq>1,50%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.015)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td style="background: #a9c3d2; color: #FFF"><b>TOTAL OTRAS INSTITUCIONES</b></td>
+                                                        <td style="background: #a9c3d2; color: #FFF; text-align: right;"><b><etiq>{{ planilla * horas * 0.0725 | currency:"¢" }}</etiq></b></td>
+                                                        <td style="background: #a9c3d2; color: #FFF; text-align: right;">-</td>
+                                                    	<td style="background: #a9c3d2; color: #FFF; text-align: right;"><b class="ng-binding">¢4,350</b></td>
+                                                    </tr>
+                                              	<tr style="background: #CCF2FF">
+                                                    	<th colspan="4" style="background: #CCF2FF">Ley de Protección al Trabajador (LPT)</th>
+                                                    </tr>
+                                               	<tr>
+                                                    	<th>Concepto</th>
+                                                    	<th style="text-align: right;">Patrono</th>
+                                                    	<th style="text-align: right;">Trabajador</th>
+                                                    	<th style="text-align: right;">Monto</th>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>Aporte Patrono Banco Popular</td>
+                                                        <td style="text-align: right;"><b><etiq>0,25%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.025)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>Fondo de Capitalización Laboral</td>
+                                                        <td style="text-align: right;"><b><etiq>3,00%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.03) | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>Fondo de Pensiones Complementarias</td>
+                                                        <td style="text-align: right;"><b><etiq>0,50%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.05)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>Aporte Trabajador Banco Popular</td>
+                                                        <td style="text-align: right;">-</td>
+                                                        <td style="text-align: right;"><b><etiq>1,00%</etiq></b></td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.01)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>INS</td>
+                                                        <td style="text-align: right;"><b><etiq>1,00%</etiq></b></td>
+                                                        <td style="text-align: right;">-</td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.01)  | currency:"¢" }}</b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td style="background: #a9c3d2; color: #FFF"><b>TOTAL LPT</b></td>
+                                                        <td style="background: #a9c3d2; color: #FFF; text-align: right;"><b><etiq>4,75%</etiq></b></td>
+                                                        <td style="background: #a9c3d2; color: #FFF; text-align: right;"><b><etiq>1,00%</etiq></b></td>
+                                                    	<td style="background: #a9c3d2; color: #FFF; text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.0475) + (planilla * horas * 0.01) | currency:"¢" }}</b></td>
+                                                    </tr>
+                                              	<tr style="background: #CCF2FF">
+                                                    	<th colspan="4" style="background: #CCF2FF">Total</th>
+                                                    </tr>
+                                               	<tr>
+                                                    	<th></th>
+                                                    	<th style="text-align: right;">Patrono</th>
+                                                    	<th style="text-align: right;">Trabajador</th>
+                                                    	<th style="text-align: right;">Total</th>
+                                                	</tr><tr>
+                                                    	<td>PORCENTAJES TOTALES</td>
+                                                        <td style="text-align: right;"><b><etiq>26,33%</etiq></b></td>
+                                                        <td style="text-align: right;"><b><etiq>9,34%</etiq></b></td>
+                                                    	<td style="text-align: right;"><b><etiq>35,67%</etiq></b></td>
+                                                    </tr>
+                                                	<tr>
+                                                    	<td>MONTOS TOTALES</td>
+                                                        <td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.2633)  | currency:"¢" }}</b></td>
+                                                        <td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.0934) | currency:"¢" }}</b></td>
+                                                    	<td style="text-align: right;"><b class="ng-binding">{{ (planilla * horas * 0.3567) | currency:"¢" }}</b></td>
+
+                                                    	<BR>
+
+                                                    
+
+                                                    </tr>
+
+
+
+
+                                                </tbody></table>
+                                                
+                                                	 <div class="col-sm-4"></div>
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4"><button type="button" class="btn btn-default">Registrar y enviar email a trabajador</button></div>
+
+                                            </div>
+                                        </div>
+                                        <br>
+<!--                                        <div>
+										<b>Notas aclaratorias:</b>
+                                        <br><br>
+                                        <ol>
+                                            <li><span>Los cálculos realizados son aproximados y con fines informativos, incluye todas las variables de cálculo, en ningún momento constituye información concluyente de la facturación, misma que puede variar dependiendo de la información presentada por el patrono al momento de formalizar la presentación y facturación de la planilla patronal.</span></li>
+                                            <li><span>Esta herramienta realiza el cálculo con la información suministrada por el usuario y no puede ser considerada definitiva.</span></li>
+                                            <li><span>La proyección no contemplan eventuales ajustes producto de salarios inferiores a al mínimo de cotización ni exoneraciones por aportes voluntarios.</span></li>
+                                            <li><span>Las proyección supone que se facturarán todas las cuotas indicadas en el cuadro de cotizaciones.</span></li>
+                                            <li><span>Las condiciones finales y válidas de la facturación serán las vigentes en el momento de presentar y facturar la planilla patronal de la CCSS</span></li>
+                                        </ol>
+                                        </div>-->
+									</div>						
+								</div> <!-- /page-content -->
+							</div> <!-- /col-md-9 -->
+							
+							
+						</div> <!-- //row -->
+					</div> <!-- //container -->
+
+                    				
+				
+				</div>
+      
+
+        <!-- Para formulario videoconferencias -->
+                
+				<!-- Para project.php -->
+				
+
+      
+            
+		<script type="application/javascript"> 
+			var fontSize = 14;
+			var maxim = 16;
+			var minim = 12;
+			function zoomIn() 
+			{
+				if(fontSize+1<=maxim)
+				{
+					fontSize += 1; document.body.style.fontSize = fontSize + "px";
+				}
+			}
+			
+			function ResetFont() 
+			{
+				fontSize = 14; document.body.style.fontSize = fontSize + "px";
+			}
+			
+			function zoomOut() 
+			{
+				if(fontSize-1>=minim)
+				{
+					fontSize -= 1; document.body.style.fontSize = fontSize + "px";
+				}
+			} 
+        </script>
+                <script type="text/javascript">
+			/* 
+			$(document).ready(function() {
+				$("body").tooltip({ selector: '[data-toggle=tooltip]' });
+			});*/
+        </script>
+        <!--End script-->
+		
+<!-- LIGHTBOX -->
+<script src="./planilla2/lightbox.js.descarga"></script>
+		
+    <!-- Datatable -->
+	<script type="text/javascript" src="./planilla2/jquery-1.12.0.min.js.descarga"></script>
+	<script type="text/javascript" src="./planilla2/jquery.dataTables.min.js.descarga"></script>
+	<script type="text/javascript" src="./planilla2/dataTables.bootstrap.min.js.descarga"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() 
+		{
+			$('#example').DataTable( 
+			{
+				"language": 
+				{
+					"lengthMenu": "Mostrar _MENU_ registros por p&aacute;gina",
+					"zeroRecords": "No hay registros asociados con el criterio de b&uacute;squeda",
+					"info": "Mostrando p&aacute;gina _PAGE_ de _PAGES_",
+					"processing": "Procesando...",
+					"infoEmpty": "No hay registros para mostrar",
+					"search": "Buscar",
+					"paginate": 
+						{
+							"first":      "Primero",
+							"last":       "&Uacute;ltimo",
+							"next":       "Siguiente",
+							"previous":   "Anterior"
+						},            
+					"infoFiltered": "(filtrado entre _MAX_ registros disponibles)"
+				}
+			} );
+		} );
+	</script>
+		
+		
+               
+					
+        
+		<script>
+            // Creo un nuevo módulo basado en una Aplicación
+            var miAplicacion = angular.module('CalcSicere', [])
+            
+            // Mediante la instancia, defino un controlador
+            miAplicacion.controller ('ctrlCalcCuotas', ['$scope', function($scope){
+
+				$scope.monto = 0
+                
+            }])			
+        </script>
+
+    
+</div></div><div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href="https://www.ccss.sa.cr/calculadora"></a><a class="lb-next" href="https://www.ccss.sa.cr/calculadora"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div><a id="scrollUp" href="https://www.ccss.sa.cr/calculadora#top" title="" style="position: fixed; z-index: 2147483647; display: block;"></a></body></html>
